@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+<body>
+    <html>
+<head>
+<title>Cal</title>
+<style type="text/css">
+
+.btn{
+ width:50px;
+ height:50px;
+ background-color:#FF0;
+ display:inline-block;
+ margin:5px;
+ font-size:38px;
+ text-align:center;
+ cursor:pointer;
+}
+.btn:hover{
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.screen
+{padding:10px;
+font-size:28px;
+text-align:right;}
+
+.container
+{max-width:330px;
+background-color:#06F;
+padding:20px;}
+
+.cont2{
+ width:200px;
+ float:left;
+}
+
+.btnlast{height:110px;
+padding-top:25px;
+box-sizing:border-box;}
+
+.signs{
+ background-color:#EB8325;
+ color:#FFF;
+ font-weight:bolder;
+}
+.screen{
+ background-color:#FFF;
+ min-height:150px;
+ border-radius:20px;
+ margin:5px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="screen"></div>
+
+<div class="cont2">
+    <div class="btn" onClick="kaku(1)">1</div>
+    <div class="btn" onClick="kaku(2)">2</div>
+    <div class="btn" onClick="kaku(3)">3</div>
+    <div class="btn" onClick="kaku(4)">4</div>
+    <div class="btn" onClick="kaku(5)">5</div>
+    <div class="btn" onClick="kaku(6)">6</div>
+    <div class="btn" onClick="kaku(7)">7</div>
+    <div class="btn" onClick="kaku(8)">8</div>
+    <div class="btn" onClick="kaku(9)">9</div>
+    <div class="btn" onClick="kaku(0)" style="width:114px">0</div>
+    <div class="btn" onClick="kaku('.')">.</div>
+</div>
+    <div class="btn signs" onClick="signo('/')">/</div>
+    <div class="btn" onClick="emp()">C</div>
+    <div class="btn signs" onClick="signo('-')">-</div>
+    <div class="btn signs" onClick="signo('x')">X</div>
+    <div class="btn btnlast signs" onClick="signo('+')">+</div>
+    <div class="btn btnlast signs" style="background-color:#F00;" onClick="eq()">=</div>
+  
+</div>
+
+</body>
+<script type="text/javascript">
+
+var Scontent = document.getElementsByClassName('screen')[0].innerHTML;
+var n1='';
+n2 = ''; n3 = '';lod=0;sign=''; sp = '&nbsp;&nbsp;&nbsp;';
+function kaku(par){
+ if(lod < 1){
+ n1=n1+''+par;
+ //alert(n1);
+ }else{
+ n2=n2+''+par;}
+ viewState();
+}
+function emp(Scontent){
+ document.getElementsByClassName('screen')[0].innerHTML = '';
+ n1='';
+n2 = ''; n3 = '';lod=0;
+}
+function viewState(){
+ var x = n1+'<br />'+sign+sp+n2+'<div style="border-top:solid 2px #000;">'+n3+'</div>';
+ //alert(n3);
+ document.getElementsByClassName('screen')[0].innerHTML=x;
+}
+function signo(si){sign = si;
+ if(lod < 1){lod=1;}else{
+  //n3 = n1/n2;
+ }
+ viewState();
+}
+function eq(){
+ n1 = Number(n1);
+ n2 = Number(n2);
+ if(sign=='+'){n3 = n1+n2;}
+ if(sign=='/'){n3 = n1/n2;}
+ if(sign=='-'){n3 = n1-n2;}
+ if(sign=='x'){n3 = n1*n2;}
+ viewState();
+}
+</script>
+</html>
+
+</body>
+</html>
